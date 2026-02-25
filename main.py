@@ -5,7 +5,7 @@ from typing import List, Any
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from scrapling import StealthyFetcher
+from scrapling import Fetcher
 
 app = FastAPI(title="Scrap API", version="1.0.2")
 
@@ -51,7 +51,7 @@ def scrape_one(code: str):
     code = (code or "").strip()
     url = f"https://www.rastreadordepacotes.com.br/rastreio/jadlog/{code}"
 
-    fetcher = StealthyFetcher()
+    fetcher = Fetcher()
 
     # Obs: o log que você mostrou indica que ele já está usando referer/search por baixo.
     resp = fetcher.get(url)
